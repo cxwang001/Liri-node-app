@@ -68,3 +68,23 @@ function movie_this(){
   		}
 	});
 }
+
+function do_what_it_says() {
+
+	fs.readFile("random.txt", 'utf8', function(error, data){
+		if (error) {
+    	return console.log(error);
+  		}
+
+  // We will then print the contents of data
+  	console.log(data);
+  	console.log(typeof data);
+  	data=data.replace(/,|"/," ");;
+  	console.log(data);
+
+
+  
+  	// console.log(dataArr); 
+  	// console.log(typeof dataArr); 
+  	});
+}
