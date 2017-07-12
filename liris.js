@@ -33,14 +33,13 @@ function my_tweets() {
   		if (error) {
     	return console.log(err);
     	}
-    	console.log(response);
-    	for (var i = 0; i < 2; i++) {
-    		console.log(tweets[i].text);
-    	};
+      for (var i = 0; i < tweets.length; i++) {
+    	     console.log((tweets[i].text) + " created on " + (tweets[i].created_at));
+      }
+  });
 
+};
 
-	});
-}
 
 function movie_this(){
 
@@ -78,8 +77,8 @@ function do_what_it_says() {
 
   // We will then print the contents of data
   	console.log(data);
-  	console.log(typeof data);
-  	data=data.replace(/,|"/," ");;
+  	// console.log(JSON.parse(data));
+  	data=data.replace(/,|"/g, '');
   	console.log(data);
 
 
