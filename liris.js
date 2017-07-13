@@ -2,7 +2,7 @@ var fs = require("fs");
 var keys = require("./keys.js");				
 var Twitter = require("twitter");					
 var request = require("request");				
-var spotify = require("spotify");	
+var Spotify = require('node-spotify-api');
 var client = new Twitter(keys.twitterKeys);
 var action = process.argv[2];
 
@@ -40,6 +40,29 @@ function my_tweets() {
 
 };
 
+function spotify_this_song(){
+
+  // var songName = process.argv[4];
+  
+ 
+  var spotify = new Spotify({
+  id: 'fc8a55cd68624873bb2a8469c15e880a',
+  secret: '32d3c73bf7264419b0d885f7ae5d8202'
+  });
+
+  
+  spotify.search({ type: 'track', query: 'The Sign' }, function(err, data) {
+    if (err) {
+     console.log('Error occurred: ' + err);
+    }
+ 
+    console.log(data); 
+  });
+
+
+
+
+};
 
 function movie_this(){
 
@@ -80,10 +103,5 @@ function do_what_it_says() {
   	// console.log(JSON.parse(data));
   	data=data.replace(/,|"/g, '');
   	console.log(data);
-
-
-  
-  	// console.log(dataArr); 
-  	// console.log(typeof dataArr); 
   	});
 }
